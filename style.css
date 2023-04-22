@@ -1,0 +1,98 @@
+* {
+    padding: 0rem;
+    margin: 0rem;
+    border: 0rem;
+    font: inherit;
+    box-sizing: border-box;
+}
+
+:root {
+    --app-bg: #141627;
+    --text-cl: #fff;
+    --card-game-container: #078585;
+    --card-game-bg: #067B7B; 
+}
+
+body, html {
+    height: 100vh;
+    background-color: var(--app-bg);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+
+.time-counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .6rem;
+    font-size: 2.2rem;
+    color: var(--text-cl);
+    margin-bottom: .9rem;
+}
+
+
+.card-game-container {
+    background-color: var(--card-game-container);
+    border-radius: .5rem;
+    padding: .7rem .8rem;
+    position: relative;
+    
+    display: grid;
+    grid-template: repeat(3, 5rem)/ repeat(4, 5rem);
+    gap: 0.8rem;
+    transition: all .2s linear;
+}
+
+.show-cards-container::before {
+    content: 'Watch the cards places';
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: gainsboro;
+    border-radius: .7rem;
+    opacity: 0.4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--app-bg);
+    font-size: 1.5rem;
+    font-weight: 600;
+    z-index: 1;
+}
+
+.card-game {
+    background-color: var(--card-game-bg);
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: all .3s linear;  
+    position: relative; 
+}
+
+.card-game img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    transition: transform .6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    backface-visibility: hidden;
+    object-fit: none;
+    width: 100%;
+}
+
+.card-game img:last-of-type {
+    transform: rotateY(180deg);
+}
+
+.show-img img:first-of-type {
+    transform: rotateY(180deg);
+}
+
+.show-img img:last-of-type {
+    transform: rotateY(0deg);
+}
